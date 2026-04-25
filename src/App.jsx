@@ -78,7 +78,7 @@ FeaturedProducts.propTypes = {
 }
 function App() {
   const [selectedOption, setSelectedOption] = useState('bike-service')
-  const { location } = useLocationContext()
+  const { location, locationLink } = useLocationContext()
 
   const { packages: servicingPackages, loading: pkgLoading, error: pkgError } = usePackages()
   const { products, loading: oilLoading, error: oilError } = useOilProducts()
@@ -91,12 +91,15 @@ function App() {
     const locationText = location && location !== 'Detecting Location...'
       ? location
       : 'location not detected'
+    const fallbackMapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(locationText)}`
+    const finalMapLink = locationLink || fallbackMapLink
     const message =
-      `Hi! I would like to book the *${pkg.name} Bike Service Package* at %E2%82%B9${pkg.price}/-.%0A` +
-      `Includes: ${pkg.oil}%0A` +
-      `My Location: ${locationText}%0A` +
+      `Hi! I would like to book the *${pkg.name} Bike Service Package* at ₹${pkg.price}/-.\n` +
+      `Includes: ${pkg.oil}\n` +
+      `My Location: ${locationText}\n` +
+      `Map Link: ${finalMapLink}\n` +
       `Please confirm my slot. Thank you!`
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
   }
 
   const renderOilCards = (oilList, isLoading, fetchError) => {

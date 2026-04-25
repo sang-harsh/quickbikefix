@@ -11,7 +11,7 @@ const DEFAULT_LOCATION = {
 export default function LocationOption() {
   const [location, setLocation] = useState('Detecting Location...')
   const [loading, setLoading] = useState(true)
-  const { setLocation: setGlobalLocation } = useLocationContext()
+  const { setLocation: setGlobalLocation, setLocationLink } = useLocationContext()
   const timeoutRef = useRef(null)
 
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function LocationOption() {
     }
     setLocation(DEFAULT_LOCATION.name)
     setGlobalLocation(DEFAULT_LOCATION.name)
+    setLocationLink(`https://www.google.com/maps?q=${DEFAULT_LOCATION.latitude},${DEFAULT_LOCATION.longitude}`)
     setLoading(false)
   }
 
@@ -97,6 +98,7 @@ export default function LocationOption() {
       }
       setLocation(city)
       setGlobalLocation(city)
+      setLocationLink(`https://www.google.com/maps?q=${latitude},${longitude}`)
       setLoading(false)
     } catch (error) {
       console.error('Error getting location name:', error)

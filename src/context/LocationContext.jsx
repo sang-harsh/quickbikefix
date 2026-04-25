@@ -2,12 +2,18 @@ import { createContext, useContext, useMemo, useState } from 'react'
 
 const LocationContext = createContext({
   location: '',
-  setLocation: () => {}
+  setLocation: () => {},
+  locationLink: '',
+  setLocationLink: () => {}
 })
 
 export function LocationProvider({ children }) {
   const [location, setLocation] = useState('')
-  const value = useMemo(() => ({ location, setLocation }), [location])
+  const [locationLink, setLocationLink] = useState('')
+  const value = useMemo(
+    () => ({ location, setLocation, locationLink, setLocationLink }),
+    [location, locationLink]
+  )
   return (
     <LocationContext.Provider value={value}>
       {children}
