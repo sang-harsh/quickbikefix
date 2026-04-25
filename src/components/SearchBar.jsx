@@ -7,6 +7,7 @@ export default function SearchBar() {
   const [searchResults, setSearchResults] = useState([])
   const [showResults, setShowResults] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const oilDataUrl = `${import.meta.env.BASE_URL}oil-data.json`
 
   const handleSearch = async (e) => {
     e.preventDefault()
@@ -20,7 +21,7 @@ export default function SearchBar() {
     
     try {
       // Fetch data from the JSON file
-      const response = await fetch('/oil-data.json')
+      const response = await fetch(oilDataUrl)
       const data = await response.json()
       
       // Search through products

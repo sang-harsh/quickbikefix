@@ -6,13 +6,14 @@ import { useLocationContext } from './context/LocationContext'
 import PropTypes from 'prop-types'
 
 const WHATSAPP_NUMBER = '919766145714' // Replace with your WhatsApp business number
+const BASE_URL = import.meta.env.BASE_URL
 
 function usePackages() {
   const [packages, setPackages] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   useEffect(() => {
-    fetch('/packages-data.json')
+    fetch(`${BASE_URL}packages-data.json`)
       .then((r) => r.json())
       .then((data) => setPackages(data.packages || []))
       .catch(() => setError('Failed to load service packages.'))
@@ -26,7 +27,7 @@ function useOilProducts() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   useEffect(() => {
-    fetch('/oil-data.json')
+    fetch(`${BASE_URL}oil-data.json`)
       .then((r) => r.json())
       .then((data) => setProducts(data.products || []))
       .catch(() => setError('Failed to load oil products.'))
