@@ -68,7 +68,7 @@ function PermissionErrorModal({ message, onClose }) {
         <h4>Location Access Required</h4>
         <p>{message}</p>
         <p className="permission-modal-note">
-          Please allow location access in your browser to book bike servicing.
+          Please allow location access in your browser to continue on WhatsApp.
         </p>
         <button className="permission-modal-close-btn" onClick={onClose}>
           Close
@@ -149,6 +149,23 @@ function App() {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
   }
 
+  const buildProductWhatsAppUrl = (product) => {
+    const locationText = location || 'location not detected'
+    const fallbackMapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(locationText)}`
+    const finalMapLink = locationLink || fallbackMapLink
+    const message =
+      `Hi! I would like to enquire about *${product.name}* (${product.brand}).\n` +
+      `Type: ${product.type}\n` +
+      `Viscosity: ${product.viscosity}\n` +
+      `Volume: ${product.volume}\n` +
+      `Offer Price: ₹${product.discountedPrice} (MRP ₹${product.price})\n` +
+      `My Location: ${locationText}\n` +
+      `Map Link: ${finalMapLink}\n` +
+      `Please share availability and booking details. Thank you!`
+
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+  }
+
   const handleBookPackage = async (event, pkg) => {
     if (permissionStatus === 'granted' && locationLink) {
       setBookingError('')
@@ -168,6 +185,26 @@ function App() {
     window.open(bookingUrl, '_blank', 'noopener,noreferrer')
   }
 
+  const handleBookProduct = async (event, product) => {
+    if (permissionStatus === 'granted' && locationLink) {
+      const productUrl = buildProductWhatsAppUrl(product)
+      window.open(productUrl, '_blank', 'noopener,noreferrer')
+      return
+    }
+
+    event.preventDefault()
+    const hasLocation = await requestLocation()
+
+    if (!hasLocation) {
+      setBookingError('Enable location access to continue product enquiry on WhatsApp.')
+      return
+    }
+
+    setBookingError('')
+    const productUrl = buildProductWhatsAppUrl(product)
+    window.open(productUrl, '_blank', 'noopener,noreferrer')
+  }
+
   const renderOilCards = (oilList, isLoading, fetchError) => {
     if (isLoading) return <LoadingSpinner />
     if (fetchError) return <DataError message={fetchError} />
@@ -175,7 +212,10 @@ function App() {
     return (
       <div className="option-content-grid oil-grid">
         {oilList.map((oil) => (
-          <article key={oil.id} className="service-card oil-card">
+          <article
+            key={oil.id}
+            className="service-card oil-card"
+          >
             <div className="oil-card-top">
               <span className="oil-type-badge">{oil.type}</span>
               {oil.discount > 0 && (
@@ -203,6 +243,15 @@ function App() {
               <span className="oil-final-price">₹{oil.discountedPrice}</span>
               <span className="oil-rating">★ {oil.rating}</span>
             </div>
+            <button
+              type="button"
+              className="whatsapp-book-btn oil-whatsapp-btn"
+              onClick={(event) => {
+                handleBookProduct(event, oil)
+              }}
+            >
+              Enquire on WhatsApp
+            </button>
           </article>
         ))}
       </div>
@@ -264,10 +313,10 @@ function App() {
 
       <main className="app-content">
         <section className="hero-section">
-          <h2>Bike Service & Oil Assistance in Pune and PCMC</h2>
+          <h2>Bike Service & Oil Assistance in PCMC and Pune</h2>
           <p>Share your location and choose the right servicing package for your bike.</p>
           <p className="hero-subtitle">
-            Our services are available all over <span className="area-highlight">Pune City</span> and <span className="area-highlight">PCMC</span>.
+            Our services are available all over <span className="area-highlight area-tooltip-trigger">PCMC<span className="area-tooltip"><span className="area-tooltip-title">PCMC Areas</span><ul><li>Nigdi</li><li>Akurdi</li><li>Bhosari</li><li>Wakad</li><li>Pimpri</li><li>Chinchwad</li><li>Ravet</li><li>Moshi</li></ul></span></span> and <span className="area-highlight area-tooltip-trigger">Pune City<span className="area-tooltip"><span className="area-tooltip-title">Pune City Areas</span><ul><li>Kalyani Nagar</li><li>Hadapsar</li><li>Katraj</li><li>Warje</li><li>Aundh</li><li>Baner</li><li>Koregaon Park</li><li>Market Yard</li></ul></span></span>.
           </p>
         </section>
 

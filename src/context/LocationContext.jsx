@@ -20,27 +20,36 @@ export function LocationProvider({ children }) {
   const [locationError, setLocationError] = useState('Location permission not granted')
 
   const fetchLocationName = useCallback(async (latitude, longitude) => {
+    const fallbackLocation = `${latitude.toFixed(4)}, ${longitude.toFixed(4)}`
     try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 5000)
+
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`,
+        { signal: controller.signal }
       )
+      clearTimeout(timeoutId)
+
+      if (!response.ok) {
+        throw new Error('Failed reverse geocoding response')
+      }
+
       const data = await response.json()
 
       const city = data.address?.city ||
         data.address?.town ||
         data.address?.county ||
         data.address?.state ||
-        'Location detected'
+        fallbackLocation
 
       setLocation(city)
       setLocationLink(`https://www.google.com/maps?q=${latitude},${longitude}`)
       setLocationError('')
-      return true
     } catch {
-      setLocation('')
-      setLocationLink('')
-      setLocationError('Unable to resolve your location name. Please try again.')
-      return false
+      setLocation(fallbackLocation)
+      setLocationLink(`https://www.google.com/maps?q=${latitude},${longitude}`)
+      setLocationError('Location detected. Showing coordinates due to address lookup issue.')
     }
   }, [])
 
@@ -60,9 +69,10 @@ export function LocationProvider({ children }) {
         async (position) => {
           setPermissionStatus('granted')
           const { latitude, longitude } = position.coords
-          const isResolved = await fetchLocationName(latitude, longitude)
+          setLocationLink(`https://www.google.com/maps?q=${latitude},${longitude}`)
+          await fetchLocationName(latitude, longitude)
           setIsDetecting(false)
-          resolve(isResolved)
+          resolve(true)
         },
         (error) => {
           if (error.code === 1) {

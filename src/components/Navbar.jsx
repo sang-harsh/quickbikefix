@@ -23,9 +23,8 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Right side - Login */}
+        {/* Right side - Empty */}
         <div className="navbar-right">
-          <button className="login-btn">Login</button>
         </div>
 
         {/* Search row below logo on mobile */}

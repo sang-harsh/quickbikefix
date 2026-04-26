@@ -13,18 +13,21 @@
   padding: 16px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
+  position: relative;
 }
 
 .navbar-left {
+  position: absolute;
+  left: 20px;
   flex: 0 0 auto;
   display: flex;
   align-items: center;
 }
 
 .navbar-center {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
