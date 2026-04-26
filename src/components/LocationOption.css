@@ -1,11 +1,23 @@
 .location-option {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 8px;
   padding: 8px 12px;
   background: var(--accent-bg);
   border-radius: 6px;
   border: 1px solid var(--border);
+  cursor: pointer;
+  width: 230px;
+  min-width: 230px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: left;
+}
+
+.location-option:hover {
+  border-color: var(--accent);
 }
 
 .location-icon {
@@ -18,17 +30,16 @@
   font-size: 14px;
   font-family: var(--sans);
   font-weight: 500;
+  flex: 1;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 150px;
 }
 
 .location-refresh {
   background: transparent;
-  border: none;
   color: var(--text);
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,13 +48,15 @@
   flex-shrink: 0;
 }
 
-.location-refresh:hover {
+.location-option:hover .location-refresh {
   color: var(--accent);
   transform: rotate(180deg);
 }
 
 @media (max-width: 768px) {
   .location-option {
+    width: 190px;
+    min-width: 190px;
     padding: 6px 8px;
     gap: 4px;
   }
@@ -55,7 +68,6 @@
 
   .location-text {
     font-size: 12px;
-    max-width: 120px;
   }
 
   .location-refresh {
@@ -66,11 +78,12 @@
 
 @media (max-width: 480px) {
   .location-option {
+    width: 170px;
+    min-width: 170px;
     padding: 5px 8px;
   }
 
   .location-text {
-    max-width: 110px;
     font-size: 11px;
   }
 }

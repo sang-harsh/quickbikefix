@@ -52,6 +52,37 @@ function DataError({ message }) {
 DataError.propTypes = {
   message: PropTypes.string.isRequired
 }
+
+function PermissionErrorModal({ message, onClose }) {
+  return (
+    <dialog
+      open
+      className="permission-modal-overlay"
+      aria-modal="true"
+      aria-label="Location permission required"
+    >
+      <div className="permission-modal">
+        <div className="permission-modal-progress">
+          <div className="permission-modal-progress-bar"></div>
+        </div>
+        <h4>Location Access Required</h4>
+        <p>{message}</p>
+        <p className="permission-modal-note">
+          Please allow location access in your browser to book bike servicing.
+        </p>
+        <button className="permission-modal-close-btn" onClick={onClose}>
+          Close
+        </button>
+      </div>
+    </dialog>
+  )
+}
+
+PermissionErrorModal.propTypes = {
+  message: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired
+}
+
 function getOilIcon(type) {
   if (type === 'Fully Synthetic') return '⚡'
   if (type === 'Semi Synthetic') return '🔧'
@@ -78,7 +109,13 @@ FeaturedProducts.propTypes = {
 }
 function App() {
   const [selectedOption, setSelectedOption] = useState('bike-service')
-  const { location, locationLink } = useLocationContext()
+  const [bookingError, setBookingError] = useState('')
+  const {
+    location,
+    locationLink,
+    permissionStatus,
+    requestLocation
+  } = useLocationContext()
 
   const { packages: servicingPackages, loading: pkgLoading, error: pkgError } = usePackages()
   const { products, loading: oilLoading, error: oilError } = useOilProducts()
@@ -87,10 +124,20 @@ function App() {
   const semiSynthetic = products.filter((p) => p.type === 'Semi Synthetic')
   const mineral = products.filter((p) => p.type === 'Mineral')
 
+  useEffect(() => {
+    if (!bookingError) return undefined
+
+    const timeoutId = setTimeout(() => {
+      setBookingError('')
+    }, 5000)
+
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [bookingError])
+
   const buildWhatsAppUrl = (pkg) => {
-    const locationText = location && location !== 'Detecting Location...'
-      ? location
-      : 'location not detected'
+    const locationText = location || 'location not detected'
     const fallbackMapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(locationText)}`
     const finalMapLink = locationLink || fallbackMapLink
     const message =
@@ -100,6 +147,25 @@ function App() {
       `Map Link: ${finalMapLink}\n` +
       `Please confirm my slot. Thank you!`
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+  }
+
+  const handleBookPackage = async (event, pkg) => {
+    if (permissionStatus === 'granted' && locationLink) {
+      setBookingError('')
+      return
+    }
+
+    event.preventDefault()
+    const hasLocation = await requestLocation()
+
+    if (!hasLocation) {
+      setBookingError('Unable to continue booking because location permission is not enabled.')
+      return
+    }
+
+    setBookingError('')
+    const bookingUrl = buildWhatsAppUrl(pkg)
+    window.open(bookingUrl, '_blank', 'noopener,noreferrer')
   }
 
   const renderOilCards = (oilList, isLoading, fetchError) => {
@@ -156,6 +222,9 @@ function App() {
               <a
                 className="whatsapp-book-btn"
                 href={buildWhatsAppUrl(pkg)}
+                onClick={(event) => {
+                  handleBookPackage(event, pkg)
+                }}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -241,6 +310,13 @@ function App() {
       </main>
 
       <Footer />
+
+      {bookingError ? (
+        <PermissionErrorModal
+          message={bookingError}
+          onClose={() => setBookingError('')}
+        />
+      ) : null}
     </>
   )
 }
