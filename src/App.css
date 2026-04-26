@@ -251,6 +251,26 @@ html, body, #root {
   gap: 6px;
 }
 
+.oil-image-wrap {
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(135deg, var(--accent-bg), rgba(192, 132, 252, 0.05));
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.oil-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+
 .oil-card-top {
   display: flex;
   justify-content: space-between;

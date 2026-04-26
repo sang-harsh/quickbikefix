@@ -275,19 +275,6 @@
   transform: translateY(0);
 }
 
-.stock-info {
-  font-size: 11px;
-  color: var(--text);
-  margin: 0;
-}
-
-.out-of-stock {
-  font-size: 11px;
-  color: #ff4444;
-  font-weight: 600;
-  margin: 0;
-}
-
 .no-results {
   display: flex;
   flex-direction: column;

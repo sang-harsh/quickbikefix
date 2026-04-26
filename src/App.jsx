@@ -182,6 +182,14 @@ function App() {
                 <span className="oil-discount-badge">-{oil.discount}%</span>
               )}
             </div>
+            <div className="oil-image-wrap">
+              <img
+                src={oil.image}
+                alt={oil.name}
+                className="oil-image"
+                loading="lazy"
+              />
+            </div>
             <h4>{oil.name}</h4>
             <p className="oil-brand">{oil.brand}</p>
             <p className="oil-desc">{oil.description}</p>

@@ -1,27 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './SearchResults.css'
 
 export default function SearchResults({ results, query, onClose }) {
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose()
-    }
-  }
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      onClose()
-    }
-  }
-
   return (
-    <div 
+    <dialog
+      open
       className="search-results-overlay" 
-      onClick={handleBackdropClick}
-      onKeyDown={handleKeyDown}
-      role="dialog"
       aria-modal="true"
-      tabIndex={0}
+      onClose={onClose}
     >
       <div className="search-results-container">
         <div className="search-results-header">
@@ -77,12 +64,6 @@ export default function SearchResults({ results, query, onClose }) {
                     <button className="add-to-cart-btn">Add to Cart</button>
                   </div>
 
-                  {product.stock > 0 && (
-                    <p className="stock-info">In Stock: {product.stock}</p>
-                  )}
-                  {product.stock === 0 && (
-                    <p className="out-of-stock">Out of Stock</p>
-                  )}
                 </div>
               </div>
             ))}
@@ -98,6 +79,12 @@ export default function SearchResults({ results, query, onClose }) {
           </div>
         )}
       </div>
-    </div>
+    </dialog>
   )
+}
+
+SearchResults.propTypes = {
+  results: PropTypes.array.isRequired,
+  query: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired
 }
