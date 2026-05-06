@@ -355,15 +355,7 @@ function App() {
           </div>
         </section>
 
-        <section className="featured-section">
-          <h3>Featured Products</h3>
-          <p className="carousel-note">Services available all over Pune City Area and PCMC Area.</p>
-          {oilLoading ? (
-            <LoadingSpinner />
-            ) : null}
-            {!oilLoading && oilError && <DataError message={oilError} />}
-            {!oilLoading && !oilError && <FeaturedProducts products={products} />}
-        </section>
+
       </main>
 
       <Footer />

@@ -116,10 +116,7 @@
   }
 
   .navbar-search-row {
-    display: flex;
-    align-items: center;
-    order: 4;
-    margin-top: 2px;
+    display: none;
   }
 }
 
@@ -130,7 +127,7 @@
     gap: 8px;
   }
 
-  /* Row 1: logo (left) + login (right) */
+  /* Row 1: logo (left) + location (right) */
   .navbar-center {
     order: 1;
     flex: 1;
@@ -139,15 +136,17 @@
   }
 
   .navbar-right {
-    order: 2;
+    order: 3;
     gap: 8px;
     flex: 0 0 auto;
   }
 
-  /* Row 2: location + search spanning full width */
+  /* Location option: push to right end */
   .navbar-left {
-    order: 3;
+    order: 2;
+    position: static;
     flex: 0 0 auto;
+    margin-left: auto;
   }
 
   .navbar-right .search-bar-wrapper {
@@ -188,8 +187,10 @@
   }
 
   .navbar-left {
-    order: 3;
+    order: 2;
+    position: static;
     flex: 0 0 auto;
+    margin-left: auto;
   }
 
   .brand-name {

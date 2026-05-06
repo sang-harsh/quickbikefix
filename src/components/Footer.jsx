@@ -6,25 +6,21 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3>About Us</h3>
-          <p>QuickBikeFix helps riders book trusted bike servicing and find the right engine oil options across Pune City and PCMC.</p>
-        </div>
-
-        <div className="footer-section">
           <h3>Contact Us</h3>
           <div className="contact-info">
             <p>
-              <strong>Address:</strong><br />
-              123 Automotive Street<br />
-              Motor City, MC 45678
+              <strong>Address:</strong>
+              Gajanan Enterprises<br />
+              Near Pimple Gurav Bus Stop,<br />
+              Pune - 411027
             </p>
             <p>
-              <strong>Phone:</strong><br />
-              +1 (555) 123-4567
+              <strong>Phone:</strong>
+              +91 98765 43210
             </p>
             <p>
-              <strong>Email:</strong><br />
-              support@quickbikefix.com
+              <strong>Email:</strong>
+              gajananEnterprises@gmail.com
             </p>
           </div>
         </div>
@@ -37,16 +33,16 @@ export default function Footer() {
             <li><a href="#contact">Contact</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
-        </div>
-
-        <div className="footer-section">
           <h3>Follow Us</h3>
           <div className="social-links">
             <a href="#facebook" aria-label="Facebook">Facebook</a>
-            <a href="#twitter" aria-label="Twitter">Twitter</a>
             <a href="#instagram" aria-label="Instagram">Instagram</a>
-            <a href="#linkedin" aria-label="LinkedIn">LinkedIn</a>
           </div>
+        </div>
+
+        <div className="footer-section">
+          <h3>About Us</h3>
+          <p>QuickBikeFix helps riders book trusted bike servicing and find the right engine oil options across Pune City and PCMC.</p>
         </div>
       </div>
 
