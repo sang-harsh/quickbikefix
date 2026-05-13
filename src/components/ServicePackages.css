@@ -1,0 +1,303 @@
+
+/* ── Tier colour tokens ─────────────────────────────────────── */
+.pkg-tier-silver {
+  --pkg-accent: #9ca3af;
+  --pkg-accent-bg: rgba(156, 163, 175, 0.12);
+  --pkg-accent-border: rgba(156, 163, 175, 0.5);
+  --pkg-badge-bg: #6b7280;
+  --pkg-badge-text: #fff;
+  --pkg-btn-bg: #6b7280;
+  --pkg-btn-hover: #4b5563;
+}
+
+.pkg-tier-gold {
+  --pkg-accent: #f59e0b;
+  --pkg-accent-bg: rgba(245, 158, 11, 0.12);
+  --pkg-accent-border: rgba(245, 158, 11, 0.5);
+  --pkg-badge-bg: #d97706;
+  --pkg-badge-text: #fff;
+  --pkg-btn-bg: #d97706;
+  --pkg-btn-hover: #b45309;
+}
+
+.pkg-tier-platinum {
+  --pkg-accent: #aa3bff;
+  --pkg-accent-bg: rgba(170, 59, 255, 0.12);
+  --pkg-accent-border: rgba(170, 59, 255, 0.5);
+  --pkg-badge-bg: #7c2ae8;
+  --pkg-badge-text: #fff;
+  --pkg-btn-bg: #7c2ae8;
+  --pkg-btn-hover: #6a1fd1;
+}
+
+/* ── Grid ───────────────────────────────────────────────────── */
+.service-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Flip Card Shell ────────────────────────────────────────── */
+.pkg-flip-card {
+  perspective: 1200px;
+  /* Fixed height so both faces overlay properly */
+  height: 520px;
+}
+
+.pkg-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.pkg-flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* ── Shared face styles ─────────────────────────────────────── */
+.pkg-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--pkg-accent-border);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* ── FRONT ──────────────────────────────────────────────────── */
+.pkg-front {
+  padding: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pkg-front:hover {
+  border-color: var(--pkg-accent);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.pkg-front:hover .pkg-tap-hint {
+  opacity: 1;
+}
+
+.pkg-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.pkg-tier-badge {
+  display: inline-block;
+  background: var(--pkg-badge-bg);
+  color: var(--pkg-badge-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.pkg-tagline {
+  color: var(--text);
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.pkg-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pkg-features li {
+  color: var(--text);
+  font-size: 11.5px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.25;
+}
+
+.pkg-features li::before {
+  content: '✓';
+  color: var(--pkg-accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pkg-tap-hint {
+  display: block;
+  margin-top: auto;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pkg-accent);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+/* ── BACK ───────────────────────────────────────────────────── */
+.pkg-back {
+  transform: rotateY(180deg);
+  padding: 20px;
+  background: var(--pkg-accent-bg);
+  justify-content: center;
+}
+
+.pkg-back-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.pkg-back-btn {
+  background: var(--bg);
+  border: 1px solid var(--pkg-accent-border);
+  color: var(--pkg-accent);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.pkg-back-btn:hover {
+  background: var(--pkg-accent-bg);
+}
+
+.pkg-back-subtitle {
+  color: var(--text);
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+
+/* ── Bike option buttons ────────────────────────────────────── */
+.pkg-bike-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pkg-bike-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  background: var(--bg);
+  border: 1px solid var(--pkg-accent-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.pkg-bike-btn:hover {
+  background: var(--pkg-btn-bg);
+  border-color: var(--pkg-btn-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.pkg-bike-btn:hover .pkg-bike-label,
+.pkg-bike-btn:hover .pkg-bike-price,
+.pkg-bike-btn:hover .pkg-wa-icon {
+  color: #fff;
+}
+
+.pkg-bike-btn:active {
+  transform: translateY(0);
+}
+
+.pkg-bike-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+  transition: color 0.2s;
+}
+
+.pkg-bike-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--pkg-accent);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.pkg-wa-icon {
+  color: #25d366;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .service-packages-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pkg-flip-card {
+    height: auto;
+    perspective: none;
+  }
+
+  .pkg-flip-inner {
+    height: auto;
+    transform-style: flat;
+    transition: none;
+    transform: none !important;
+  }
+
+  .pkg-flip-inner.flipped .pkg-front {
+    display: none;
+  }
+
+  .pkg-flip-inner:not(.flipped) .pkg-back {
+    display: none;
+  }
+
+  .pkg-face {
+    position: static;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transform: none;
+  }
+
+  .pkg-front,
+  .pkg-back {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 901px) {
+  .service-packages-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .pkg-flip-card {
+    height: 560px;
+  }
+}

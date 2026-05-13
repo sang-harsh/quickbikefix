@@ -169,6 +169,12 @@ html, body, #root {
   transform: translateY(-1px);
 }
 
+.option-btn-highlight {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  font-weight: 700;
+}
+
 .option-btn.active {
   background: var(--accent);
   color: #fff;
@@ -610,8 +616,12 @@ html, body, #root {
   /* Two-column button grid on phones */
   .service-options-buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
+  }
+
+  .option-btn-highlight {
+    grid-column: 1 / -1;
   }
 
   .option-btn {
@@ -727,9 +737,13 @@ html, body, #root {
   }
 
   .service-options-buttons {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
     margin-bottom: 12px;
+  }
+
+  .option-btn-highlight {
+    grid-column: 1 / -1;
   }
 
   .option-btn {
