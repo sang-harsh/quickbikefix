@@ -1,36 +1,27 @@
 import React from 'react'
 import './Navbar.css'
-import LocationOption from './LocationOption'
-import SearchBar from './SearchBar'
 
 export default function Navbar() {
+  const scrollToBooking = () => {
+    document.getElementById('book-now')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* Left side - Location */}
-        <div className="navbar-left">
-          <LocationOption />
-        </div>
-
-        {/* Center - Logo and Brand */}
-        <div className="navbar-center">
+        <div className="navbar-brand">
           <div className="logo">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="14" fill="#aa3bff"></circle>
-              <text x="16" y="20" textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">BIKE</text>
-            </svg>
-            <h1 className="brand-name">QuickBikeFix</h1>
+            <div className="logo-mark">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+              </svg>
+            </div>
+            <h1 className="brand-name">QuicKBikeFix</h1>
           </div>
         </div>
-
-        {/* Right side - Empty */}
-        <div className="navbar-right">
-        </div>
-
-        {/* Search row below logo on mobile */}
-        <div className="navbar-search-row">
-          <SearchBar />
-        </div>
+        <button className="navbar-book-btn" onClick={scrollToBooking}>
+          Book Now
+        </button>
       </div>
     </nav>
   )

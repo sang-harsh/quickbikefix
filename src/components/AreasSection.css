@@ -1,0 +1,138 @@
+.areas-section {
+  padding: 64px 40px;
+  background: #06090f;
+  border-top: 1px solid rgba(0, 229, 255, 0.1);
+  text-align: center;
+}
+
+.areas-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.areas-header {
+  margin-bottom: 36px;
+}
+
+.areas-pin-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 14px;
+  margin-bottom: 14px;
+  color: #00e5ff;
+}
+
+.areas-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #dde6f0;
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
+}
+
+.areas-subtitle {
+  font-size: 15px;
+  color: #7e8fa8;
+}
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.areas-zone {
+  background: rgba(13, 21, 37, 0.8);
+  border: 1px solid rgba(0, 229, 255, 0.12);
+  border-radius: 16px;
+  padding: 22px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.areas-zone:hover {
+  border-color: rgba(0, 229, 255, 0.28);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.08);
+}
+
+.areas-zone-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #00e5ff;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.areas-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.areas-tag {
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  color: #7e8fa8;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  transition: all 0.18s ease;
+}
+
+.areas-tag:hover {
+  background: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.35);
+  color: #dde6f0;
+}
+
+.areas-note {
+  font-size: 14px;
+  color: #7e8fa8;
+}
+
+.areas-note strong {
+  color: #00e5ff;
+}
+
+@media (max-width: 1024px) {
+  .areas-section {
+    padding: 52px 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .areas-section {
+    padding: 48px 16px;
+  }
+
+  .areas-title {
+    font-size: 26px;
+  }
+
+  .areas-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .areas-section {
+    padding: 36px 12px;
+  }
+
+  .areas-title {
+    font-size: 20px;
+  }
+
+  .areas-zone {
+    padding: 16px;
+  }
+}

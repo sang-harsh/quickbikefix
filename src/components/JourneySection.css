@@ -1,0 +1,213 @@
+.journey-section {
+  padding: 72px 40px;
+  background: #06090f;
+  background-image: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+  border-top: 1px solid rgba(0, 229, 255, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.journey-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.journey-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #dde6f0;
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
+}
+
+.journey-subtitle {
+  font-size: 16px;
+  color: #7e8fa8;
+  margin: 0 0 52px;
+}
+
+/* Steps row */
+.journey-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+
+.journey-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  max-width: 200px;
+  padding: 0 10px;
+}
+
+.journey-step--clickable {
+  cursor: pointer;
+}
+
+.journey-step--clickable:hover .journey-step-icon {
+  background: rgba(0, 229, 255, 0.12);
+  border-color: #00e5ff;
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
+  color: #00e5ff;
+}
+
+.journey-step--clickable:hover .journey-step-label {
+  color: #00e5ff;
+}
+
+.journey-step-num {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #00e5ff, #7c3aed);
+  color: #06090f;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+}
+
+.journey-step-icon {
+  width: 68px;
+  height: 68px;
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00e5ff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(0, 229, 255, 0);
+}
+
+.journey-step-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #dde6f0;
+  transition: color 0.2s;
+}
+
+.journey-step-desc {
+  font-size: 12px;
+  color: #7e8fa8;
+  line-height: 1.5;
+}
+
+/* Arrow connector */
+.journey-arrow {
+  display: flex;
+  align-items: center;
+  padding-top: 46px;
+  flex-shrink: 0;
+  opacity: 0.35;
+}
+
+@media (max-width: 1024px) {
+  .journey-section {
+    padding: 60px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .journey-section {
+    padding: 52px 20px;
+  }
+
+  .journey-title {
+    font-size: 28px;
+  }
+
+  .journey-subtitle {
+    margin-bottom: 36px;
+  }
+
+  .journey-step {
+    max-width: 140px;
+    padding: 0 4px;
+  }
+
+  .journey-step-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+  }
+
+  .journey-step-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .journey-step-label {
+    font-size: 12px;
+  }
+
+  .journey-step-desc {
+    font-size: 11px;
+  }
+
+  .journey-arrow {
+    padding-top: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .journey-section {
+    padding: 40px 12px;
+  }
+
+  .journey-title {
+    font-size: 22px;
+  }
+
+  .journey-subtitle {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .journey-step {
+    max-width: 82px;
+    padding: 0 2px;
+    gap: 6px;
+  }
+
+  .journey-step-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .journey-step-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .journey-step-num {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+
+  .journey-step-label {
+    font-size: 11px;
+  }
+
+  .journey-step-desc {
+    display: none;
+  }
+
+  .journey-arrow {
+    padding-top: 30px;
+  }
+
+  .journey-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+}
