@@ -14,25 +14,28 @@ const BIKE_OPTIONS = [
 
 const TIER_STYLES = {
   silver: {
-    tabBg: 'linear-gradient(135deg, #c0c0c0, #9ca3af)',
-    detailsBg: '#f8f9fa',
-    detailsBorder: '#d1d5db',
-    checkColor: '#6b7280',
-    accent: '#6b7280',
+    tabBg: 'linear-gradient(135deg, #c8cdd6, #8d96a3)',
+    detailsBg: 'rgba(160, 170, 180, 0.06)',
+    detailsBorder: 'rgba(180, 190, 200, 0.22)',
+    checkColor: '#a8b8c8',
+    accent: '#a8b8c8',
+    accentBg: 'rgba(168, 184, 200, 0.14)',
   },
   gold: {
     tabBg: 'linear-gradient(135deg, #fbbf24, #d97706)',
-    detailsBg: '#fffdf0',
-    detailsBorder: '#fcd34d',
-    checkColor: '#d97706',
-    accent: '#d97706',
+    detailsBg: 'rgba(251, 191, 36, 0.06)',
+    detailsBorder: 'rgba(251, 191, 36, 0.22)',
+    checkColor: '#fbbf24',
+    accent: '#fbbf24',
+    accentBg: 'rgba(251, 191, 36, 0.13)',
   },
   platinum: {
-    tabBg: 'linear-gradient(135deg, #aa3bff, #7c3aed)',
-    detailsBg: '#faf5ff',
-    detailsBorder: '#c084fc',
-    checkColor: '#aa3bff',
-    accent: '#aa3bff',
+    tabBg: 'linear-gradient(135deg, #d0e4f7, #7aaed6)',
+    detailsBg: 'rgba(122, 174, 214, 0.07)',
+    detailsBorder: 'rgba(122, 174, 214, 0.24)',
+    checkColor: '#8fc4e8',
+    accent: '#8fc4e8',
+    accentBg: 'rgba(143, 196, 232, 0.13)',
   },
 }
 
@@ -175,7 +178,7 @@ export default function BookingSection({ packages, loading }) {
                             <button
                               key={key}
                               className={`booking-bike-btn${activeBike === key ? ' active' : ''}`}
-                              style={{ '--bike-accent': ts.accent }}
+                              style={{ '--bike-accent': ts.accent, '--bike-accent-bg': ts.accentBg }}
                               onClick={() => setActiveBike(key)}
                             >
                               <span className="bbb-label">{label}</span>

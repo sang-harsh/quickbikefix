@@ -93,7 +93,7 @@
 /* Expanded package details */
 .booking-pkg-details {
   background: var(--details-bg, rgba(0, 229, 255, 0.04));
-  border-top: 1px solid rgba(0, 229, 255, 0.12);
+  border-top: 1px solid var(--details-border, rgba(0, 229, 255, 0.12));
   padding: 20px 22px 26px;
   animation: detailsSlideIn 0.18s ease;
 }
@@ -107,7 +107,8 @@
 .booking-bike-title {
   font-size: 11px;
   font-weight: 700;
-  color: rgba(0, 229, 255, 0.6);
+  color: var(--check-color, rgba(0, 229, 255, 0.6));
+  opacity: 0.75;
   margin: 0 0 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -134,7 +135,7 @@
 .booking-features-list li svg {
   flex-shrink: 0;
   margin-top: 2px;
-  color: #00e5ff;
+  color: var(--check-color, #00e5ff);
 }
 
 /* Bike buttons */
@@ -163,12 +164,12 @@
 
 .booking-bike-btn.active {
   border-color: var(--bike-accent, #00e5ff);
-  background: var(--bike-accent, rgba(0, 229, 255, 0.12));
-  box-shadow: 0 0 14px rgba(0, 229, 255, 0.2);
+  background: var(--bike-accent-bg, rgba(0, 229, 255, 0.12));
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.25);
 }
 
 .booking-bike-btn.active .bbb-label {
-  color: #00e5ff;
+  color: var(--bike-accent, #00e5ff);
 }
 
 .bbb-label {
@@ -180,7 +181,7 @@
 .bbb-price {
   font-size: 14px;
   font-weight: 700;
-  color: #00e5ff;
+  color: var(--bike-accent, #00e5ff);
 }
 
 /* Address section */

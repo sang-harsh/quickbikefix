@@ -2,7 +2,7 @@
   "packages": [
     {
       "id": "silver",
-      "name": "Silver",
+      "name": "Silver Package",
       "tier": "silver",
       "tagline": "Essential Bike Care",
       "features": [
@@ -34,7 +34,7 @@
     },
     {
       "id": "gold",
-      "name": "Gold",
+      "name": "Gold Package",
       "tier": "gold",
       "tagline": "Complete Service Package",
       "features": [
@@ -69,7 +69,7 @@
     },
     {
       "id": "platinum",
-      "name": "Platinum",
+      "name": "Platinum Package",
       "tier": "platinum",
       "tagline": "Premium Full-Service Experience",
       "features": [

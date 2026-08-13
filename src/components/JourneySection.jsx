@@ -11,7 +11,7 @@ const STEPS = [
     ),
     label: 'Book Online',
     desc: 'Choose your plan & slot in under 60 seconds',
-    clickable: true,
+    scrollTarget: 'book-now',
   },
   {
     icon: (
@@ -24,7 +24,7 @@ const STEPS = [
     ),
     label: 'We Pickup',
     desc: 'Our team collects your bike from your doorstep',
-    clickable: false,
+    scrollTarget: 'areas-section',
   },
   {
     icon: (
@@ -34,7 +34,7 @@ const STEPS = [
     ),
     label: 'Expert Service',
     desc: 'Certified mechanics service your bike with care',
-    clickable: false,
+    scrollTarget: 'brands-section',
   },
   {
     icon: (
@@ -45,13 +45,13 @@ const STEPS = [
     ),
     label: 'Free Delivery',
     desc: 'Bike dropped back, fresh and ready to ride',
-    clickable: false,
+    scrollTarget: 'areas-section',
   },
 ]
 
 export default function JourneySection() {
-  const scrollToBooking = () => {
-    document.getElementById('book-now')?.scrollIntoView({ behavior: 'smooth' })
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -64,11 +64,11 @@ export default function JourneySection() {
           {STEPS.map((step, index) => (
             <React.Fragment key={step.label}>
               <div
-                className={`journey-step${step.clickable ? ' journey-step--clickable' : ''}`}
-                onClick={step.clickable ? scrollToBooking : undefined}
-                role={step.clickable ? 'button' : undefined}
-                tabIndex={step.clickable ? 0 : undefined}
-                onKeyDown={step.clickable ? (e) => { if (e.key === 'Enter') scrollToBooking() } : undefined}
+                className={`journey-step${step.scrollTarget ? ' journey-step--clickable' : ''}`}
+                onClick={step.scrollTarget ? () => scrollTo(step.scrollTarget) : undefined}
+                role={step.scrollTarget ? 'button' : undefined}
+                tabIndex={step.scrollTarget ? 0 : undefined}
+                onKeyDown={step.scrollTarget ? (e) => { if (e.key === 'Enter') scrollTo(step.scrollTarget) } : undefined}
               >
                 <div className="journey-step-num">{index + 1}</div>
                 <div className="journey-step-icon">{step.icon}</div>

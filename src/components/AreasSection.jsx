@@ -8,7 +8,7 @@ const AREAS = {
 
 export default function AreasSection() {
   return (
-    <section className="areas-section">
+    <section id="areas-section" className="areas-section">
       <div className="areas-inner">
         <div className="areas-header">
           <div className="areas-pin-icon">
