@@ -1,7 +1,10 @@
 import React from 'react'
 import './Navbar.css'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Navbar() {
+  const { theme, toggleTheme } = useTheme()
+
   const scrollToBooking = () => {
     document.getElementById('book-now')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -19,9 +22,18 @@ export default function Navbar() {
             <h1 className="brand-name">QuicKBikeFix</h1>
           </div>
         </div>
-        <button className="navbar-book-btn" onClick={scrollToBooking}>
-          Book Now
-        </button>
+        <div className="navbar-right">
+          <button
+            className="navbar-theme-toggle"
+            onClick={toggleTheme}
+            title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+          >
+            {theme === 'light' ? '🌙' : '🔧'}
+          </button>
+          <button className="navbar-book-btn" onClick={scrollToBooking}>
+            Book Now
+          </button>
+        </div>
       </div>
     </nav>
   )

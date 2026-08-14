@@ -1,9 +1,10 @@
 .trust-section {
   padding: 72px 40px;
-  background: #06090f;
-  background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(124, 58, 237, 0.07) 0%, transparent 70%);
-  border-top: 1px solid rgba(0, 229, 255, 0.1);
+  background: var(--bg);
+  background-image: radial-gradient(ellipse 60% 40% at 50% 0%, var(--accent2-bg) 0%, transparent 70%);
+  border-top: 1px solid var(--border);
   text-align: center;
+  transition: background 0.3s ease;
 }
 
 .trust-inner {
@@ -14,7 +15,7 @@
 .trust-title {
   font-size: 34px;
   font-weight: 800;
-  color: #dde6f0;
+  color: var(--text-h);
   margin: 0 0 48px;
   letter-spacing: -0.5px;
 }
@@ -29,8 +30,8 @@
 .trust-stat {
   flex: 1 1 220px;
   max-width: 260px;
-  background: rgba(13, 21, 37, 0.8);
-  border: 1px solid rgba(0, 229, 255, 0.12);
+  background: var(--bg-card-alpha);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 32px 24px;
   transition: all 0.25s ease;
@@ -45,16 +46,16 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-tint-40), transparent);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
 
 .trust-stat:hover {
-  border-color: rgba(0, 229, 255, 0.3);
-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.12), 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-tint-30);
+  box-shadow: 0 0 30px var(--accent-tint-12), 0 10px 30px rgba(0, 0, 0, 0.4);
   transform: translateY(-4px);
-  background: rgba(13, 21, 37, 0.95);
+  background: var(--bg-card-alpha-hover);
 }
 
 .trust-stat:hover::before {
@@ -70,23 +71,23 @@
 .trust-stat-value {
   font-size: 40px;
   font-weight: 900;
-  color: #00e5ff;
+  color: var(--accent);
   line-height: 1;
   margin-bottom: 6px;
   letter-spacing: -1.5px;
-  filter: drop-shadow(0 0 12px rgba(0, 229, 255, 0.4));
+  filter: drop-shadow(0 0 12px var(--accent-tint-40));
 }
 
 .trust-stat-label {
   font-size: 16px;
   font-weight: 700;
-  color: #dde6f0;
+  color: var(--text-h);
   margin-bottom: 4px;
 }
 
 .trust-stat-sub {
   font-size: 13px;
-  color: #7e8fa8;
+  color: var(--text);
   line-height: 1.4;
 }
 

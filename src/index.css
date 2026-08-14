@@ -4,7 +4,13 @@
   --bg: #06090f;
   --bg-card: #0d1525;
   --bg-elevated: #121e35;
+  --bg-footer: #040710;
+  --bg-card-alpha: rgba(13, 21, 37, 0.8);
+  --bg-card-alpha-hover: rgba(13, 21, 37, 0.95);
   --border: rgba(0, 229, 255, 0.12);
+  --border-faint: rgba(0, 229, 255, 0.08);
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --border-input: rgba(0, 229, 255, 0.15);
   --border-hover: rgba(0, 229, 255, 0.35);
   --code-bg: #0a1220;
   --accent: #00e5ff;
@@ -17,6 +23,25 @@
     rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
   --glow-cyan: 0 0 20px rgba(0, 229, 255, 0.25);
   --glow-purple: 0 0 20px rgba(124, 58, 237, 0.3);
+  /* accent tint scale */
+  --accent-tint-3: rgba(0, 229, 255, 0.03);
+  --accent-tint-4: rgba(0, 229, 255, 0.04);
+  --accent-tint-5: rgba(0, 229, 255, 0.05);
+  --accent-tint-6: rgba(0, 229, 255, 0.06);
+  --accent-tint-7: rgba(0, 229, 255, 0.07);
+  --accent-tint-8: rgba(0, 229, 255, 0.08);
+  --accent-tint-10: rgba(0, 229, 255, 0.1);
+  --accent-tint-12: rgba(0, 229, 255, 0.12);
+  --accent-tint-20: rgba(0, 229, 255, 0.2);
+  --accent-tint-30: rgba(0, 229, 255, 0.3);
+  --accent-tint-40: rgba(0, 229, 255, 0.4);
+  --accent-muted: rgba(0, 229, 255, 0.6);
+  /* misc */
+  --step-num-color: #06090f;
+  --hero-cta-color: #06090f;
+  --brand-gradient: linear-gradient(135deg, #00e5ff 0%, #7c3aed 100%);
+  --logo-gradient: linear-gradient(135deg, #00e5ff, #7c3aed);
+  --hero-cta-gradient: linear-gradient(135deg, #00e5ff, #0080ff);
 
   --sans: 'Segoe UI', system-ui, Roboto, sans-serif;
   --heading: 'Segoe UI', system-ui, Roboto, sans-serif;
@@ -42,9 +67,58 @@
   }
 }
 
+/* ── Light mode — Bike / Workshop palette ─────────────────── */
+[data-theme="light"] {
+  --text: #6b5c48;
+  --text-h: #1e1408;
+  --bg: #f2ede5;
+  --bg-card: #e8e2d8;
+  --bg-elevated: #ddd7cc;
+  --bg-footer: #d5cfc3;
+  --bg-card-alpha: rgba(220, 213, 200, 0.85);
+  --bg-card-alpha-hover: rgba(208, 200, 185, 0.95);
+  --border: rgba(110, 80, 40, 0.18);
+  --border-faint: rgba(110, 80, 40, 0.08);
+  --border-subtle: rgba(110, 80, 40, 0.1);
+  --border-input: rgba(110, 80, 40, 0.22);
+  --border-hover: rgba(110, 80, 40, 0.38);
+  --code-bg: #ddd7cc;
+  --accent: #e85d04;
+  --accent-bg: rgba(232, 93, 4, 0.08);
+  --accent-border: rgba(232, 93, 4, 0.4);
+  --accent2: #1e3a5f;
+  --accent2-bg: rgba(30, 58, 95, 0.1);
+  --social-bg: rgba(232, 93, 4, 0.06);
+  --shadow:
+    rgba(110, 80, 40, 0.14) 0 10px 15px -3px, rgba(110, 80, 40, 0.08) 0 4px 6px -2px;
+  --glow-cyan: 0 0 20px rgba(232, 93, 4, 0.2);
+  --glow-purple: 0 0 20px rgba(30, 58, 95, 0.25);
+  /* accent tints — orange */
+  --accent-tint-3: rgba(232, 93, 4, 0.03);
+  --accent-tint-4: rgba(232, 93, 4, 0.04);
+  --accent-tint-5: rgba(232, 93, 4, 0.05);
+  --accent-tint-6: rgba(232, 93, 4, 0.06);
+  --accent-tint-7: rgba(232, 93, 4, 0.07);
+  --accent-tint-8: rgba(232, 93, 4, 0.08);
+  --accent-tint-10: rgba(232, 93, 4, 0.1);
+  --accent-tint-12: rgba(232, 93, 4, 0.12);
+  --accent-tint-20: rgba(232, 93, 4, 0.2);
+  --accent-tint-30: rgba(232, 93, 4, 0.3);
+  --accent-tint-40: rgba(232, 93, 4, 0.4);
+  --accent-muted: rgba(232, 93, 4, 0.6);
+  /* misc */
+  --step-num-color: #fff;
+  --hero-cta-color: #fff;
+  --brand-gradient: linear-gradient(135deg, #e85d04 0%, #1e3a5f 100%);
+  --logo-gradient: linear-gradient(135deg, #e85d04, #1e3a5f);
+  --hero-cta-gradient: linear-gradient(135deg, #e85d04, #b84400);
+  color-scheme: light;
+}
+
 body {
   margin: 0;
-  background: #06090f;
+  background: var(--bg);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root {
@@ -55,7 +129,8 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background: #06090f;
+  background: var(--bg);
+  transition: background 0.3s ease;
 }
 
 h1,

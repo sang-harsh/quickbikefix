@@ -1,12 +1,13 @@
 .hero-new {
   padding: 80px 40px 64px;
-  background: #06090f;
+  background: var(--bg);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(0, 229, 255, 0.03) 0%, transparent 100%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-tint-8) 0%, transparent 60%),
+    linear-gradient(180deg, var(--accent-tint-3) 0%, transparent 100%);
   text-align: center;
   position: relative;
   overflow: hidden;
+  transition: background 0.3s ease;
 }
 
 .hero-new::before {
@@ -14,8 +15,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--accent-tint-3) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent-tint-3) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -31,22 +32,22 @@
   font-size: 58px;
   font-weight: 800;
   line-height: 1.1;
-  color: #dde6f0;
+  color: var(--text-h);
   margin: 0 0 20px;
   letter-spacing: -2px;
 }
 
 .hero-title-accent {
-  background: linear-gradient(135deg, #00e5ff 0%, #7c3aed 100%);
+  background: var(--brand-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.35));
+  filter: drop-shadow(0 0 20px var(--accent-tint-30));
 }
 
 .hero-new-desc {
   font-size: 18px;
-  color: #7e8fa8;
+  color: var(--text);
   line-height: 1.7;
   margin: 0 0 36px;
 }
@@ -55,25 +56,24 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #00e5ff, #0080ff);
-  color: #06090f;
+  background: var(--hero-cta-gradient);
+  color: var(--hero-cta-color);
   border: none;
   border-radius: 50px;
   padding: 16px 40px;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 800;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.4), 0 8px 28px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 30px var(--accent-tint-40), 0 8px 28px rgba(0, 0, 0, 0.4);
   margin-bottom: 48px;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  font-size: 13px;
 }
 
 .hero-new-cta:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 50px rgba(0, 229, 255, 0.6), 0 14px 36px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 50px var(--accent-tint-40), 0 14px 36px rgba(0, 0, 0, 0.5);
 }
 
 .hero-new-cta:active {
@@ -98,14 +98,14 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00e5ff, #7c3aed);
-  border: 2px solid rgba(0, 229, 255, 0.3);
+  background: var(--brand-gradient);
+  border: 2px solid var(--accent-tint-30);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   margin-left: -10px;
-  box-shadow: 0 2px 10px rgba(0, 229, 255, 0.2);
+  box-shadow: 0 2px 10px var(--accent-tint-20);
 }
 
 .hero-avatar:first-child {
@@ -128,11 +128,11 @@
 
 .hero-trust-label {
   font-size: 13px;
-  color: #7e8fa8;
+  color: var(--text);
 }
 
 .hero-trust-label strong {
-  color: #00e5ff;
+  color: var(--accent);
 }
 
 /* Benefit cards */
@@ -148,8 +148,8 @@
   align-items: center;
   text-align: center;
   gap: 8px;
-  background: rgba(0, 229, 255, 0.04);
-  border: 1px solid rgba(0, 229, 255, 0.12);
+  background: var(--accent-tint-4);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 16px 12px;
   flex: 1;
@@ -158,23 +158,23 @@
 }
 
 .hero-benefit-card:hover {
-  border-color: rgba(0, 229, 255, 0.35);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1), 0 6px 18px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-tint-30);
+  box-shadow: 0 0 20px var(--accent-tint-10), 0 6px 18px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
-  background: rgba(0, 229, 255, 0.07);
+  background: var(--accent-tint-7);
 }
 
 .hero-benefit-icon-wrap {
   width: 40px;
   height: 40px;
-  background: rgba(0, 229, 255, 0.1);
+  background: var(--accent-tint-10);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   flex-shrink: 0;
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  border: 1px solid var(--accent-tint-20);
 }
 
 .hero-benefit-info {
@@ -186,12 +186,12 @@
 .hero-benefit-title {
   font-size: 13px;
   font-weight: 700;
-  color: #dde6f0;
+  color: var(--text-h);
 }
 
 .hero-benefit-sub {
   font-size: 11px;
-  color: #7e8fa8;
+  color: var(--text);
   line-height: 1.4;
 }
 

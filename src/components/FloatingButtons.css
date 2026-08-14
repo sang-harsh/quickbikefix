@@ -37,13 +37,14 @@
 }
 
 .floating-btn--call {
-  background: #00e5ff;
-  box-shadow: 0 4px 18px rgba(0, 229, 255, 0.45);
+  background: var(--accent);
+  box-shadow: 0 4px 18px var(--accent-tint-40);
 }
 
 .floating-btn--call:hover {
-  background: #00cfea;
-  box-shadow: 0 8px 28px rgba(0, 229, 255, 0.6);
+  background: var(--accent);
+  opacity: 0.88;
+  box-shadow: 0 8px 28px var(--accent-tint-40);
 }
 
 @media (max-width: 480px) {

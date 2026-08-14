@@ -1,7 +1,8 @@
 .footer {
-  background: #040710;
-  border-top: 1px solid rgba(0, 229, 255, 0.1);
+  background: var(--bg-footer);
+  border-top: 1px solid var(--border);
   padding: 40px 40px 28px;
+  transition: background 0.3s ease;
 }
 
 .footer-container {
@@ -19,17 +20,16 @@
 }
 
 .footer-section h3 {
-  color: #dde6f0;
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  color: rgba(0, 229, 255, 0.7);
+  color: var(--accent-muted);
 }
 
 .footer-section p {
-  color: #7e8fa8;
+  color: var(--text);
   font-size: 14px;
   line-height: 1.7;
   margin: 8px 0;
@@ -40,7 +40,7 @@
 }
 
 .contact-info strong {
-  color: #dde6f0;
+  color: var(--text-h);
   display: block;
   margin-bottom: 2px;
   font-size: 13px;
@@ -57,14 +57,14 @@
 }
 
 .footer-section a {
-  color: #7e8fa8;
+  color: var(--text);
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s ease;
 }
 
 .footer-section a:hover {
-  color: #00e5ff;
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -78,25 +78,25 @@
   display: inline-flex;
   align-items: center;
   padding: 7px 14px;
-  background: rgba(0, 229, 255, 0.05);
-  border: 1px solid rgba(0, 229, 255, 0.15);
+  background: var(--social-bg);
+  border: 1px solid var(--border-input);
   border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
-  color: #7e8fa8;
+  color: var(--text);
   transition: all 0.2s ease;
 }
 
 .social-links a:hover {
-  background: rgba(0, 229, 255, 0.1);
-  border-color: rgba(0, 229, 255, 0.4);
-  color: #00e5ff;
+  background: var(--accent-tint-10);
+  border-color: var(--accent-tint-40);
+  color: var(--accent);
   text-decoration: none;
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 12px var(--accent-tint-12);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(0, 229, 255, 0.08);
+  border-top: 1px solid var(--border-faint);
   padding-top: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -108,7 +108,8 @@
 }
 
 .footer-bottom p {
-  color: rgba(126, 143, 168, 0.6);
+  color: var(--text);
+  opacity: 0.6;
   font-size: 13px;
   margin: 0;
 }
@@ -121,19 +122,21 @@
 }
 
 .footer-links a {
-  color: rgba(126, 143, 168, 0.6);
+  color: var(--text);
+  opacity: 0.6;
   text-decoration: none;
   font-size: 12px;
   transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: #00e5ff;
+  color: var(--accent);
+  opacity: 1;
   text-decoration: none;
 }
 
 .footer-links span {
-  color: rgba(0, 229, 255, 0.15);
+  color: var(--border);
 }
 
 @media (max-width: 1024px) {

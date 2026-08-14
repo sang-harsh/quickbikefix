@@ -1,7 +1,8 @@
 .booking-section {
   padding: 72px 40px;
-  background: #06090f;
-  border-top: 1px solid rgba(0, 229, 255, 0.1);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  transition: background 0.3s ease;
 }
 
 .booking-inner {
@@ -17,14 +18,14 @@
 .booking-title {
   font-size: 38px;
   font-weight: 800;
-  color: #dde6f0;
+  color: var(--text-h);
   margin: 0 0 10px;
   letter-spacing: -1px;
 }
 
 .booking-subtitle {
   font-size: 16px;
-  color: #7e8fa8;
+  color: var(--text);
 }
 
 /* Package list */
@@ -33,14 +34,14 @@
   flex-direction: column;
   gap: 0;
   margin-bottom: 24px;
-  border: 1px solid rgba(0, 229, 255, 0.15);
+  border: 1px solid var(--border-input);
   border-radius: 16px;
   overflow: hidden;
-  background: rgba(0, 229, 255, 0.03);
+  background: var(--accent-tint-3);
 }
 
 .booking-pkg-item {
-  border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+  border-bottom: 1px solid var(--border);
 }
 
 .booking-pkg-item:last-child {
@@ -62,11 +63,11 @@
 }
 
 .booking-pkg-tab:hover {
-  background: rgba(0, 229, 255, 0.04);
+  background: var(--accent-tint-4);
 }
 
 .booking-pkg-tab.active {
-  background: rgba(0, 229, 255, 0.06);
+  background: var(--accent-tint-6);
 }
 
 .bpt-tier-dot {
@@ -80,20 +81,20 @@
 .bpt-name {
   font-size: 20px;
   font-weight: 800;
-  color: #dde6f0;
+  color: var(--text-h);
   flex: 1;
   letter-spacing: -0.3px;
 }
 
 .bpt-arrow {
   font-size: 11px;
-  color: rgba(0, 229, 255, 0.4);
+  color: var(--accent-tint-40);
 }
 
 /* Expanded package details */
 .booking-pkg-details {
-  background: var(--details-bg, rgba(0, 229, 255, 0.04));
-  border-top: 1px solid var(--details-border, rgba(0, 229, 255, 0.12));
+  background: var(--details-bg, var(--accent-tint-4));
+  border-top: 1px solid var(--details-border, var(--border));
   padding: 20px 22px 26px;
   animation: detailsSlideIn 0.18s ease;
 }
@@ -107,7 +108,7 @@
 .booking-bike-title {
   font-size: 11px;
   font-weight: 700;
-  color: var(--check-color, rgba(0, 229, 255, 0.6));
+  color: var(--check-color, var(--accent-muted));
   opacity: 0.75;
   margin: 0 0 10px;
   text-transform: uppercase;
@@ -128,14 +129,14 @@
   align-items: flex-start;
   gap: 6px;
   font-size: 13px;
-  color: #7e8fa8;
+  color: var(--text);
   line-height: 1.4;
 }
 
 .booking-features-list li svg {
   flex-shrink: 0;
   margin-top: 2px;
-  color: var(--check-color, #00e5ff);
+  color: var(--check-color, var(--accent));
 }
 
 /* Bike buttons */
@@ -149,8 +150,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(0, 229, 255, 0.03);
-  border: 1px solid rgba(0, 229, 255, 0.15);
+  background: var(--accent-tint-3);
+  border: 1px solid var(--border-input);
   border-radius: 10px;
   padding: 11px 14px;
   cursor: pointer;
@@ -158,30 +159,30 @@
 }
 
 .booking-bike-btn:hover {
-  border-color: rgba(0, 229, 255, 0.4);
-  background: rgba(0, 229, 255, 0.07);
+  border-color: var(--accent-tint-40);
+  background: var(--accent-tint-7);
 }
 
 .booking-bike-btn.active {
-  border-color: var(--bike-accent, #00e5ff);
-  background: var(--bike-accent-bg, rgba(0, 229, 255, 0.12));
+  border-color: var(--bike-accent, var(--accent));
+  background: var(--bike-accent-bg, var(--accent-tint-12));
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.25);
 }
 
 .booking-bike-btn.active .bbb-label {
-  color: var(--bike-accent, #00e5ff);
+  color: var(--bike-accent, var(--accent));
 }
 
 .bbb-label {
   font-size: 14px;
   font-weight: 600;
-  color: #dde6f0;
+  color: var(--text-h);
 }
 
 .bbb-price {
   font-size: 14px;
   font-weight: 700;
-  color: var(--bike-accent, #00e5ff);
+  color: var(--bike-accent, var(--accent));
 }
 
 /* Address section */
@@ -192,7 +193,7 @@
 .booking-address-title {
   font-size: 11px;
   font-weight: 700;
-  color: rgba(0, 229, 255, 0.6);
+  color: var(--accent-muted);
   margin: 0 0 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -209,12 +210,12 @@
   align-items: center;
   gap: 7px;
   padding: 12px 16px;
-  background: rgba(0, 229, 255, 0.06);
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  background: var(--accent-tint-6);
+  border: 1px solid var(--accent-tint-20);
   border-radius: 10px;
   font-size: 14px;
   font-weight: 600;
-  color: #7e8fa8;
+  color: var(--text);
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
@@ -222,15 +223,15 @@
 }
 
 .booking-gps-btn:hover:not(:disabled) {
-  border-color: #00e5ff;
-  color: #00e5ff;
-  background: rgba(0, 229, 255, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-tint-10);
 }
 
 .booking-gps-btn.gps-active {
-  background: rgba(0, 229, 255, 0.12);
-  border-color: #00e5ff;
-  color: #00e5ff;
+  background: var(--accent-tint-12);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .booking-gps-btn:disabled {
@@ -241,8 +242,8 @@
 .gps-spinner {
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(0, 229, 255, 0.2);
-  border-top-color: #00e5ff;
+  border: 2px solid var(--accent-tint-20);
+  border-top-color: var(--accent);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
   display: inline-block;
@@ -254,30 +255,31 @@
 
 .booking-or {
   font-size: 13px;
-  color: rgba(0, 229, 255, 0.3);
+  color: var(--accent-tint-30);
   flex-shrink: 0;
 }
 
 .booking-address-input {
   flex: 1;
   padding: 12px 14px;
-  border: 1px solid rgba(0, 229, 255, 0.15);
+  border: 1px solid var(--border-input);
   border-radius: 10px;
   font-size: 14px;
-  color: #dde6f0;
-  background: rgba(0, 229, 255, 0.04);
+  color: var(--text-h);
+  background: var(--accent-tint-4);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
   min-width: 0;
 }
 
 .booking-address-input:focus {
-  border-color: rgba(0, 229, 255, 0.5);
-  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.08);
+  border-color: var(--accent-tint-40);
+  box-shadow: 0 0 0 3px var(--accent-tint-8);
 }
 
 .booking-address-input::placeholder {
-  color: rgba(126, 143, 168, 0.5);
+  color: var(--text);
+  opacity: 0.5;
 }
 
 .booking-gps-error {
@@ -312,22 +314,23 @@
 }
 
 .booking-whatsapp-btn:disabled {
-  background: #2a3545;
+  background: var(--bg-elevated);
   box-shadow: none;
   cursor: not-allowed;
-  color: #7e8fa8;
+  color: var(--text);
 }
 
 .booking-hint {
   text-align: center;
   font-size: 13px;
-  color: rgba(126, 143, 168, 0.6);
+  color: var(--text);
+  opacity: 0.6;
   margin: 10px 0 0;
 }
 
 .booking-loading {
   text-align: center;
-  color: #7e8fa8;
+  color: var(--text);
   padding: 20px;
 }
 
