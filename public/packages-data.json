@@ -29,7 +29,7 @@
         "100cc": 360,
         "150cc": 410,
         "above200cc": 460,
-        "sportsBike": 620
+        "sportsBike": 850
       }
     },
     {
@@ -64,7 +64,7 @@
         "100cc": 460,
         "150cc": 510,
         "above200cc": 580,
-        "sportsBike": 870
+        "sportsBike": 1100
       }
     },
     {
@@ -102,7 +102,7 @@
         "100cc": 580,
         "150cc": 710,
         "above200cc": 760,
-        "sportsBike": 1130
+        "sportsBike": 1250
       }
     }
   ]

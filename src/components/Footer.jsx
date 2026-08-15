@@ -10,17 +10,18 @@ export default function Footer() {
           <div className="contact-info">
             <p>
               <strong>Address:</strong>
-              Gajanan Enterprises<br />
+              Gajanan Enterprises,<br />
               Near Pimple Gurav Bus Stop,<br />
-              Pune - 411027
+              Pune - 411061, Maharashtra, India
             </p>
             <p>
               <strong>Phone:</strong>
-              +91 98765 43210
+              +91 8080654717<br/>
+              +91 8830252696
             </p>
             <p>
               <strong>Email:</strong>
-              gajananEnterprises@gmail.com
+              gajananaenterprises0656@gmail.com
             </p>
           </div>
         </div>
@@ -35,8 +36,8 @@ export default function Footer() {
           </ul>
           <h3>Follow Us</h3>
           <div className="social-links">
-            <a href="#facebook" aria-label="Facebook">Facebook</a>
-            <a href="#instagram" aria-label="Instagram">Instagram</a>
+            <a href="https://www.facebook.com/share/1EhmScoEM8/" aria-label="Facebook">Facebook</a>
+            <a href="https://www.instagram.com/quickbikefix?igsh=MXd1ODFubWJoZ2hhaA==&igsi=MXd1ODFubWJoZ2hhaA==" aria-label="Instagram">Instagram</a>
           </div>
         </div>
 

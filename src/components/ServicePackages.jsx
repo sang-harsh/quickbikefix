@@ -8,7 +8,7 @@ const BIKE_OPTIONS = [
   { key: '100cc',       label: '100 CC' },
   { key: '150cc',       label: '150 CC' },
   { key: 'above200cc',  label: 'Above 200 CC' },
-  { key: 'sportsBike',  label: 'Sports Bike' },
+  { key: 'sportsBike',  label: 'Sports Bike/Royal Enfield' },
 ]
 
 function buildWhatsAppUrl({ pkg, bikeKey, bikeLabel, location, locationLink }) {
